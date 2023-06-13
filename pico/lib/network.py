@@ -10,8 +10,6 @@ import os
 import socketpool
 import ipaddress
 
-PORT = 5000
-
 class Network:
     def __init__(self):
         pass
@@ -49,34 +47,36 @@ class Network:
         # Show IP address
         print("IP address is", self.host)
 
-    def createSocket(self):
-        
-        HOST = str(self.host)
-        TIMEOUT = None
-
+    def createReceiver(self, port):
         # Create a socket pool to allow network comms
-        print("1", HOST)
         pool = socketpool.SocketPool(wifi.radio)
 
         # Create socket bound to a port
         print("\nCreate UDP Server socket")
-        self.s = pool.socket(pool.AF_INET, pool.SOCK_DGRAM)
-        print("2")
-        self.s.settimeout(TIMEOUT)
-        print("3")
-        self.s.bind((HOST, PORT))
-        print("4")
+        self.socket = pool.socket(pool.AF_INET, pool.SOCK_DGRAM)
+        self.socket.settimeout(None)
+        self.socket.bind((str(self.host), port))
 
+    def createSender(self, host, port):
+        # Create a socket pool to allow network comms
+        pool = socketpool.SocketPool(wifi.radio)
 
-    def getMessage(self):
+        # Create socket bound to a port
+        print("\nCreate UDP Server socket")
+        self.socket = pool.socket(pool.AF_INET, pool.SOCK_DGRAM)
+        self.socket.settimeout(None)
+
+        self.host = host
+        self.port = port        
+
+    def receiveMessage(self):
         MAXBUF = 256
         buf = bytearray(MAXBUF)
-        size, addr = self.s.recvfrom_into(buf)
+        size, addr = self.socket.recvfrom_into(buf)
         message = buf[:size].decode()
         return message
     
-
-    def sendMessage(self, host, port, message):
-        size = self.s.sendto(str.encode(message), (host, port))
+    def sendMessage(self, message):
+        size = self.socket.sendto(str.encode(message), (self.host, self.port))
         return size
 
