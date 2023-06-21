@@ -5,8 +5,8 @@ import board
 import analogio
 import pwmio
 
-# Set up the LED on pin 13 as an analogue output pin
-led = pwmio.PWMOut(board.GP13, frequency=1000)
+# Set up the LED on pin 16 as an analogue output pin
+led = pwmio.PWMOut(board.GP16, frequency=1000)
 
 # Loop forever adjusting the LED brightness in the range 0 (off) to 65535 (full on)
 while True:

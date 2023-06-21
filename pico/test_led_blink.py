@@ -4,8 +4,8 @@ import time
 import board
 import digitalio
 
-# Set up the LED on pin 13 as a digital output pin
-led = digitalio.DigitalInOut(board.GP13)
+# Set up the LED on pin 16 as a digital output pin
+led = digitalio.DigitalInOut(board.GP16)
 led.direction = digitalio.Direction.OUTPUT
 
 # Loop forever, blinking the LED
