@@ -52,6 +52,14 @@ try:
             speed = int(splitMessage[1])
             motor.motorOn(1, "r", speed)
             motor.motorOn(2, "r", speed)
+        elif action=="left":
+            speed = int(splitMessage[1])
+            motor.motorOn(1, "r", speed)
+            motor.motorOn(2, "f", speed)
+        elif action=="right":
+            speed = int(splitMessage[1])
+            motor.motorOn(1, "f", speed)
+            motor.motorOn(2, "r", speed)            
         elif action=="stop":
             motor.motorOff(1)
             motor.motorOff(2)
