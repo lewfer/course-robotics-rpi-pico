@@ -16,5 +16,9 @@ net.connectWifi()
 
 #  Test network by pinging Google
 ipv4 = network.ipaddress.ip_address("8.8.4.4")
-print("Ping google.com: %f ms" % (network.wifi.radio.ping(ipv4)*1000))
+pingTime = network.wifi.radio.ping(ipv4)
+if pingTime!=None:
+    print("Ping google.com: %f ms" % (pingTime*1000))
+else:
+    print("Could not ping Google")
 
