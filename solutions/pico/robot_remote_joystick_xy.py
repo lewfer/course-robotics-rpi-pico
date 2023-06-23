@@ -8,7 +8,7 @@ import board
 import network 
 
 PORT = 5000
-HOST = "192.168.1.101" 
+HOST = "192.168.1.113" 
 
 #  Set up axes on pins 27 and 28 as an analogue input pin
 axisy = analogio.AnalogIn(board.GP27_A1)
@@ -33,17 +33,29 @@ try:
     # Receive messages
     base = 1200
     while True:
+        # Centre x and y on 0
         valy = axisy.value - 32767
         valx = axisx.value - 32767
-        print(valx,valy, press.value)
-        if valy > base:
-            speed = int((valy-base)*100/(32767-base))
-            print(speed)
+
+        # Compute speed, applying easing to slow the acceleration
+        speed = (abs(valy)-base)/(32767-base)
+        speed = int(speed * speed * 100)
+        print(valx,valy, press.value,speed)
+
+        # Interpret the 
+        if valx < -base:
+            net.sendMessage("left," + str(40))
+        elif valx > base:
+            net.sendMessage("right," + str(40))
+        elif valy > base:
             net.sendMessage("forward," + str(speed))
         elif valy < -base:
-            speed = int((-valy-base)*100/(32767-base))
-            print(speed)
             net.sendMessage("backward," + str(speed))
+        elif not press.value:
+            print("servo")
+            net.sendMessage("servoup")
+            time.sleep(0.5)
+            net.sendMessage("servodown")            
         else:
             net.sendMessage("stop")
         time.sleep(0.1)

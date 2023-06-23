@@ -1,4 +1,5 @@
 # Basic robotics remote control template
+# For remote control from another Pico
 # Using buttons as controls
 
 import time

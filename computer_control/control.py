@@ -8,9 +8,9 @@ PORT = 5000
 net = network.Network()
 
 # Set up a message sender
-net.createSender()
+net.createSender(HOST, PORT)
 
 # Send messages to drive the robot forward for 2 seconds then stop
-net.sendMessage(HOST, PORT, "forward,20")
+net.sendMessage("forward,20")
 time.sleep(2)
-net.sendMessage(HOST, PORT, "stop")
+net.sendMessage("stop")
