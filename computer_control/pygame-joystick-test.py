@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 # vi:ts=4 sw=4 et
 #
+# Tool to check gamepad controls
+# Plug your gamepad into your computer and run this program
+#
 # This tool runs fine on both Python 2 and Python 3.
 #
 # https://github.com/denilsonsa/pygame-joystick-test

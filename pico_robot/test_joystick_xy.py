@@ -1,4 +1,4 @@
-# Test XY Joystick
+# Test XY Joystick on a RPi Pico
 
 import time
 import board

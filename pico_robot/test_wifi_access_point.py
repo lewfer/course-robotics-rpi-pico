@@ -1,4 +1,4 @@
-# Test wifi access point
+# Test wifi access pointon a RPi Pico
 #
 # Make sure your settings.toml is empty
 #
@@ -9,6 +9,6 @@ import network
 net = network.Network()
 
 # Create a wireless access point, providing the SSID and password
-net.startWifiAccessPoint("myrobot","hellorobot")
+net.startWifiAccessPoint("mypico","hellorobot")
 
 

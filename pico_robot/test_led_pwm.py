@@ -1,4 +1,4 @@
-# Test PWM brightness control on an LED
+# Test PWM brightness control for an LED on a RPi Pico
 
 import time
 import board

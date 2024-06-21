@@ -1,4 +1,4 @@
-# Basic robotic movements
+# Template for robotic movements for a RPi Pico Robot
 
 import PicoRobotics
 import time

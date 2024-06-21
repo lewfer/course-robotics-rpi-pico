@@ -1,4 +1,4 @@
-# Test blinking of an LED
+# Test blinking of an LED on a RPi Pico
 
 import time
 import board

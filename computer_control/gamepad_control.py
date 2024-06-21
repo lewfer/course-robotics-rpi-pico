@@ -1,13 +1,14 @@
-# Template code to control a robot over a Wifi network using a gamepad
+# Template code to control a RPi Pico robot over a Wifi network using a gamepad
 
 # Import the pygame library
 import pygame
 from pygame.locals import *
 import network
 
+# Specify the IP address of your robot
+HOST = "192.168.1.80" 
 
-# Set the IP address and port of your robot
-HOST = "192.168.1.101" 
+# Specify the port number to send messages on
 PORT = 5000
 
 # Create a network object
@@ -22,11 +23,13 @@ screen = pygame.display.set_mode([500, 500])
 # Run until the user asks to quit
 running = True
 
+# Initialise the gamepad
 pygame.joystick.init()
 gamepad = pygame.joystick.Joystick(0)
 
-command = "stop"
-lastCommand = "stop"
+# Set up the initial command
+command = "stop"        # current command
+lastCommand = "stop"    # previous command
 
 # Keep checking the gamepad
 while running:
@@ -34,7 +37,7 @@ while running:
     # Did the user click the window close button?
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-           running = False
+           running = False # stop the program
 
     # Get gamepad inputs
     axis0 = gamepad.get_axis(0)
@@ -56,7 +59,7 @@ while running:
         net.sendMessage(command)
         lastCommand = command
 
-    # Fill the background with white
+    # Fill the window background with white
     screen.fill((255, 255, 255))
 
     # Update the display

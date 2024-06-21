@@ -1,4 +1,4 @@
-# Test ultrasonic distance sensor
+# Test ultrasonic distance sensor on a RPi Pico
 
 import time
 import board

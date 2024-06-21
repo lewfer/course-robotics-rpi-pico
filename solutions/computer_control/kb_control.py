@@ -1,4 +1,4 @@
-# Template code to control a RPi Pico robot over a Wifi network using the computer keyboard
+# Example solution code to control a RPi Pico robot over a Wifi network using the computer keyboard
 
 import network
 import msvcrt
@@ -31,6 +31,12 @@ while c!="x" :
     print(c)
     if c=="up":
         net.sendMessage("forward,20")
+    elif c=="down":
+        net.sendMessage("backward,20")
+    elif c=="left":
+        net.sendMessage("left,20")
+    elif c=="right":
+        net.sendMessage("right,20")
     elif c==" ":
         net.sendMessage("stop")
 

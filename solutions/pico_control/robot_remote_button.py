@@ -7,7 +7,7 @@ import board
 import network 
 
 PORT = 5000
-HOST = "192.168.1.101" 
+HOST = "192.168.1.80" 
 
 # Set up the buttons 
 up = DigitalInOut(board.GP16)

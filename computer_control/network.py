@@ -1,3 +1,8 @@
+# network.py
+#
+# Module that encapsulates wifi network functionality needed for robot control from a computer
+# Uses UDP for sending messages
+
 import socket
 
 

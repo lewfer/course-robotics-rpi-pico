@@ -1,4 +1,4 @@
-# Test line following sensors (3 way)
+# Test line following sensors (3 way) on a RPi Pico
 
 import board
 from digitalio import DigitalInOut, Direction, Pull

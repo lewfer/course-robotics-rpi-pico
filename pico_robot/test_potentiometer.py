@@ -1,4 +1,4 @@
-# Test Potentiometer
+# Test Potentiometer on a RPi Pico
 
 import time
 import board

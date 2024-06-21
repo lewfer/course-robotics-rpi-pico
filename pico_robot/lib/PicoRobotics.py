@@ -1,4 +1,4 @@
-#This is the CircuitPython version of the Pico Robotics library.
+#This is the CircuitPython version of the Kitronik Pico Robotics library.
 #It takes into account the differences with microPython.
 #It is for use with www.kitronik.co.uk/5329 - The Pico All in one Robotics Board
 import board

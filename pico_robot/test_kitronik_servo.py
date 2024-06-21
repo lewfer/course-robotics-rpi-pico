@@ -1,4 +1,4 @@
-# Test servo with kitronik robotics board
+# Test servo with kitronik robotics board on a RPi Pico
 
 import PicoRobotics
 import time

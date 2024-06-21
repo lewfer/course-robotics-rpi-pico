@@ -1,4 +1,4 @@
-# Test wifi
+# Test wifi on a RPi Pico
 #
 # Make sure your wifi credentials are set up in settings.toml:
 #
@@ -14,7 +14,7 @@ net = network.Network()
 # Connect to the wifi
 net.connectWifi()
 
-#  Test network by pinging Google
+#  Test network by pinging Google (requires internet connection)
 ipv4 = network.ipaddress.ip_address("8.8.4.4")
 pingTime = network.wifi.radio.ping(ipv4)
 if pingTime!=None:

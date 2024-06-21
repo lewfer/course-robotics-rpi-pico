@@ -1,6 +1,7 @@
 # network.py
 #
-# Encapsulates wifi network functionality needed for robotics functions
+# Module that encapsulates wifi network functionality needed for robotics functions on a RPi Pico
+# Uses UDP for sending and receiving messages
 #
 # https://learn.adafruit.com/pico-w-wifi-with-circuitpython/pico-w-basic-wifi-test
 
@@ -11,8 +12,9 @@ import socketpool
 import ipaddress
 
 class Network:
-    def __init__(self):
-        pass
+    def __init__(self, hostname=None):
+        if hostname!=None:
+            wifi.radio.hostname = hostname
 
     def connectWifi(self):
         #  Connect to your SSID

@@ -1,4 +1,4 @@
-# Test line following sensor 
+# Test line following sensor on a RPi Pico
 
 import board
 from digitalio import DigitalInOut, Direction, Pull
