@@ -40,12 +40,12 @@ while running:
            running = False # stop the program
 
     # Get gamepad inputs
-    axis0 = gamepad.get_axis(0)
+    axis1 = gamepad.get_axis(1)
     button1 = gamepad.get_button(1)
     hatx,haty = gamepad.get_hat(0)
 
     # Make movements according to gamepad inputs
-    if axis0<-0.5:
+    if axis1<-0.5:
         command = "forward,50"
     elif haty==1:
         command = "forward,100"
